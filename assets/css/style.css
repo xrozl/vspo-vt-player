@@ -1,0 +1,350 @@
+/* 全体のmarginとpaddingを0にする */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* 全体コンテナの設定 */
+main {
+    /* 横幅いっぱい */
+    width: 100%;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: none;
+    justify-self: flex-start;
+    align-items: flex-start;
+    gap: 0;
+}
+
+/* 左側メニューの設定 */
+.left {
+    /* 横幅 */
+    width: 17.5%;
+
+    /* 高さ */
+    height: 100vh;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+
+    /* ボーダーの設定 */
+    border-right: 4px double #000000;
+    
+    /* 固定用の設定 */
+    position: fixed;
+    top: 0;
+
+    /* INDEXの設定 */
+    z-index: 1;
+}
+
+/* 左側メニューの設定 */
+.right {
+    /* 横幅 */
+    width: 82.5%;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+
+    /* marginの設定 */
+    margin-left: calc(17.5% + 3px);
+
+    /* INDEXの設定 */
+    z-index: 0;
+}
+
+/* メニューのロゴ */
+.logo {
+    /* 横幅 */
+    width: 100%;
+    /* 高さ */
+    height: auto;
+
+    /* marginの設定 */
+    margin: 0;
+
+    /* フォントの設定 */
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: 2.75vw;
+    font-weight: 700;
+
+    /* テキストの設定 */
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+
+    /* テキストの影の設定 */
+    filter: drop-shadow(0px 0px 0.5px #000);
+
+    /* ボーダーの設定 */
+    border-bottom: 1px solid #000000;
+}
+
+/* メニューのリスト */
+.menu_contents {
+    /* 横幅 */
+    width: 100%;
+    /* 高さ */
+    height: auto;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+
+    /* marginの設定 */
+    margin-top: 4.75vw;
+
+    /* ボーダーの設定 */
+    border-top: 1px solid #000000;
+
+}
+
+/* メニューの項目 */
+.menu_details {
+    /* ブロックにする */
+    display: block;
+
+    /* 横幅 */
+    width: 100%;
+
+    /* ボーダーの設定 */
+    border-bottom: 1px solid #000000;
+
+    /* テキストの設定 */
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 300;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+
+    /* マウスオーバー時の設定 */
+    transition: 0.3s;
+    
+    /* paddingの設定 */
+    padding: 1.5vw 0;
+    
+    /* marginの設定 */
+    margin: 0;
+
+    /* マウスオーバー時の設定 */
+    cursor: pointer;
+}
+
+/* メニューの項目のマウスオーバー時の設定 */
+.menu_details:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Youtubeプレイヤーコンテナの設定 */
+.player_container {
+
+    /* 横幅 */
+    width: 100%;
+    /* 高さ */
+    height: auto;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    /* ボーダーの設定 */
+    border-bottom: 1px solid #000000;
+}
+
+/* Youtubeプレイヤーの設定 */
+.player {
+    /* 中央揃え */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* 余白を設定 */
+    margin-top: 1.75vw;
+    margin-bottom: 1.75vw;
+}
+
+/* プレイヤーのコントローラーの設定 */
+.controller {
+    /* 横幅 */
+    width: 100%;
+    /* 高さ */
+    height: auto;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    /* ボーダーの設定 */
+    border-bottom: 1px solid #000000;
+    border-top: 2px solid #000000;
+}
+
+/* プレイヤーのボタン設定 */
+.material-symbols-outlined {
+    /* フォントサイズ */
+    font-size: 4.5vw;
+    
+    /* トランジション */
+    transition: 0.3s;   
+}
+
+/* プレイヤーのボタンのマウスオーバー時の設定 */
+.material-symbols-outlined:hover {
+    cursor: pointer;
+    color: #0000006f;
+}
+
+/* 横幅いっぱい */
+.full_width {
+    /* 横幅 */
+    width: 100%;
+    /* 高さ */
+    height: auto;
+}
+
+/* 選択画面のコンテナの設定 */
+.icon_container {
+    /* 横幅 */
+    width: 100%;
+    /* 高さ */
+    height: auto;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+/* 選択画面のコンテナのボーダー用の設定 */
+.icon_container:nth-child(2) {
+    /* ボーダーの設定 */
+    border-bottom: 4px double #000000;
+}
+
+/* 選択画面のコンテナのpaddingの設定 */
+.icon_container:nth-child(1) {
+    /* paddingの設定 */
+    padding-top: 10px;
+}
+
+/* 選択画面のコンテナのpaddingの設定 */
+.icon_container:nth-child(2) {
+    /* paddingの設定 */
+    padding-bottom: 10px;
+}
+
+
+/* 選択画面のアイコン設定 */
+.icon {
+    /* 横幅 */
+    width: 4.5%;
+    /* 高さ */
+    height: auto;
+
+    /* トランジション */
+    transition: 0.3s;
+
+    /* 枠を丸くする */
+    border-radius: 50%;
+
+    /* ボーダーの設定 */
+    border: 1px solid #000000;
+
+    /* マウスオーバー時の設定 */
+    cursor: pointer;
+}
+
+/* 選択画面のアイコンのマウスオーバー時の設定 */
+.icon:hover {
+    border: 1px solid #0000006f;
+    opacity: 0.6;
+}
+
+/* 選択用のコンテナの設定 */
+.select {
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+
+    /* ボーダーの設定 */
+    border-bottom: 1px solid #000000;
+}
+
+/* 選択用のコンテナのタイトル設定 */
+.title {
+
+    /* フォント */
+    font-size: 1.1vw;
+    font-weight: 300;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+
+    /* marginの設定 */
+    margin-left: 1.5vw;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2%;
+
+    /* アンダーライン */
+    border-bottom: 1px solid #000000;
+
+}
+
+.title span {
+    /* ボタンフォント */
+    font-size: 4vw;
+    font-weight: 300;
+    color: #000000;
+    text-decoration: none;
+
+    /* 中央揃え */
+    text-align: center;
+}
+
+/* サムネイル用の設定 */
+.thumbnail {
+
+    /* 横幅 */
+    width: 33%;
+
+    /* ボーダーの設定 */
+    border-right: 1px solid #000000;
+}

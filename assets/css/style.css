@@ -115,6 +115,29 @@ main {
 
 }
 
+/* ちょっとした情報 */
+.msg {
+    /* 横幅 */
+    width: 100%;
+    /* 高さ */
+    height: auto;
+
+    /* フォントの設定 */
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.9vw;
+    font-weight: 300;
+
+
+    /* marginの設定 */
+    margin: 0;
+
+    /* paddingの設定 */
+    padding: 0.75vw 0.145vw;
+
+    /* ボーダーの設定 */
+    border-bottom: 1px solid #000000;
+}
+
 /* メニューの項目 */
 .menu_details {
     /* ブロックにする */
@@ -214,7 +237,7 @@ main {
 /* プレイヤーのボタンのマウスオーバー時の設定 */
 .controller_button:hover, .add_button:hover {
     cursor: pointer;
-    color: #0000006f;
+    opacity: 0.6;
 }
 
 /* 横幅いっぱい */
@@ -440,4 +463,30 @@ main {
 
     /* フォント */
     font-size: 1.8vw;
+}
+
+/* 注意してほしいこと */
+.information {
+    /* フォント */
+    font-weight: 300;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+
+    /* 横幅 */
+    width: 100%;
+}
+
+/* 使い方画像 */
+.usage_image {
+    /* 横幅 */
+    width: 100%;
 }

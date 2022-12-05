@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ぶいうたっ！｜ぶいすぽっ！非公式歌ってみたプレイヤー</title>
 
+    <!-- OG -->
+    <meta property="og:description" content="ぶいうたっ！はぶいすぽっ！非公式歌ってみたプレイヤーです。誰でも簡単にプレイリストをすぐ作成でき、バックグラウンドで再生をすることができます。">
+    <meta property="og:title" content="ぶいうたっ！｜ぶいすぽっ！非公式歌ってみたプレイヤー">
+    <meta property="og:image" content="https://v-uta.net/assets/image/ogp.png">
+    <meta property="og:image:width" content="1500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://v-uta.net/">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +36,7 @@
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/iframe_manager.js"></script>
     <script src="assets/js/selector_manager.js"></script>
-    <script>window.load=setTimeout( function() {refreshView();}, 100);</script>
+    <script>window.load=setTimeout( function() {refreshView(); init();}, 100);</script>
 </head>
 <body>
 
@@ -38,11 +47,13 @@
         <!-- メニュー部分 -->
         <div class="left">
             <p class="logo">ぶいうたっ！</p>
+            <p class="msg">Youtubeのプレイリストを簡略化し<br>作業用に特化したアプリです。<br><br>最終更新: 2022/12/06</p>
             <div class="menu_contents">
                 <p class="menu_details" onclick="menu(1);">一覧リスト</p>
                 <p class="menu_details" onclick="menu(2);">使い方</p>
                 <p class="menu_details" onclick="menu(3);">注意してほしいこと</p>
-                <p class="menu_details" onclick="menu(4);">クレジット</p>
+                <p class="menu_details" onclick="menu(4);" style="margin-bottom: 20px;">クレジット</p>
+                <a href="https://twitter.com/intent/tweet?button_hashtag=ぶいうたっ！&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-size="large" data-text="ぶいうたっ！@ぶいすぽっ！の非公式歌ってみた再生プレイヤーを使ってみたよ！" data-url="https://v-uta.net/" data-related="vuta_like" data-lang="ja" data-dnt="true" data-show-count="false">Tweet #ぶいうたっ！</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
 
@@ -63,12 +74,16 @@
                     <span class="material-symbols-outlined controller_button" onclick="toggleVideo();">
                         play_pause
                     </span>
-                    <span class="material-symbols-outlined controller_button" onclick="repeatVideo();">
+                    <span class="material-symbols-outlined controller_button" onclick="toggleRepeat();" id="repeat_button">
                         restart_alt
                     </span>
                     <span class="material-symbols-outlined controller_button" onclick="skip_next();">
                         skip_next
                     </span>
+                    <span>
+                        音量：
+                    </span>
+                    <input type="range" name="volume" id="controller_volume", min="0", max="100", step="2">
                 </div>
             </div>
 
@@ -101,18 +116,65 @@
             </div>
 
             <!-- 使い方 -->
-            <div id="usage" style="display: none;" class="full_width content">
-                usage
+            <div id="usage" style="display: none;" class="full_width information">
+                <h3>ぶいうたっ！の使い方について</h3>
+                <p>当サイトはYoutubeのプレイリスト ライクな事ををもっと簡単に使えるようにしたアプリケーションです。<br>
+                ページを閉じてもブラウザ上にプレイリストが記録され、曲の追加・削除も簡単に行えます。<br>
+                以下実際の画面を踏まえて操作方法の説明になります。<br></p>
+
+                <h4>今あるバグについて</h4>
+                <p>現在再生中の曲を削除し、追加で曲の追加をするとその曲の再生がされない<br>
+                ⇨ひとつ前の曲に戻ることで解決します。</p>
+
+                <img src="assets/image/usage.png" alt="" class="usage_image">
+                <h4>①メニューについて</h4>
+                <p>各種項目をクリックすることで、ページを閲覧することが可能です。<br>
+                曲を再生しながらでも、別ページを閲覧することができます。</p>
+
+                <h4>②Youtube埋め込みプレイヤーについて</h4>
+                <p>Youtubeの埋め込みプレイヤーが表示されます。<br>
+                    プレイヤー上でも再生・停止が可能です。<br></p>
+                
+                <h4>③プレイリスト・操作バーについて</h4>
+                <p>現在のプレイリストです。再生されているものに関しては背景色が青色に変化します。<br>
+                曲の削除は曲名の左側についている✖️をクリックすることで削除することができます。<br>
+                操作バーは曲の再生・停止・スキップ・リピート・音量調整が可能です。<br>
+                リピートに関しては全曲リピートのみ実装しております。<br></p>
+
+                <h4>④曲選択画面について</h4>
+                <p>曲選択画面です。<br>
+                    上の段でメンバーを選択した後に、タイトル左側＋クリックすることでプレイリストに追加することができます。<br>
             </div>
 
             <!-- 注意してほしいこと -->
-            <div id="info" style="display: none;" class="full_width content">
-                info
+            <div id="info" style="display: none;" class="full_width information">
+                <h3>このWebサイトを利用する際に注意してほしいこと</h3>
+                <p>ぶいうたっ！(以下当サイト)は<b>非公式</b>サイトです。『ぶいすぽっ! 〜Virtual eSports Project〜』と直接的な関係はございませんので、ご了承ください。<br>
+                当サイトはPCでの閲覧を推奨しています。スマートフォンやタブレットで閲覧する場合、動画の再生ができない場合がございます。<br>
+                当サイトで利用してる画像や動画は、<br>
+                『ぶいすぽっ! 〜Virtual eSports Project〜』 <a href="https://vspo.jp/guide/">二次創作ガイドライン</a><br>
+                『ANYCOLOR株式会社』 <a href="https://event.nijisanji.app/guidelines/">ANYCOLOR二次創作ガイドライン</a><br>
+                に沿って作成されています。<br>
+                もし万が一こちらに関して過失がある際には、Twitter <a href="https://twitter.com/vuta_like">@vuta_like</a>までダイレクトメッセージ、もしくはその他でご連絡いただけると幸いです。<br>
+                <br>
+                当サイトを利用して起きた問題に関しては、当サイトの運営者は一切の責任を負いかねますので、ご了承ください。<br>
+                <br>
+                また、当サイトで利用しているYoutubeの埋め込みプレイヤーでは、広告・再生回数等、本来のYoutubeの機能をそのまま利用しています。<br>
+                当サイト調べで、再生回数・広告に関しては問題がないことを確認はしておりますが、<br>
+                万が一問題がある場合はTwitter <a href="https://twitter.com/vuta_like">@vuta_like</a>までダイレクトメッセージ、もしくはその他でご連絡いただけると幸いです。<br>
+                <br>
+                当サイトは完全非営利サイトです。当サイト上で表示されるYoutube広告などに関しまして、<br>
+                埋め込み型プレイヤーのため、全てYoutubeの機能によって表示されています。<br>
+                </p>
             </div>
 
             <!-- クレジット -->
-            <div id="credit" style="display: none;" class="full_width content">
-                credit
+            <div id="credit" style="display: none;" class="full_width information">
+                <h3>クレジット</h3>
+                <p>制作: ぶいうたっ！ (<a href="https://twitter.com/vuta_like">@vuta_like</a>) <br><br>
+                    インスパイア: ぶいすぽっ! 〜Virtual eSports Project〜 <br>
+                    ぶいすぽっ! 〜Virtual eSports Project〜公式Twitter: <a href="https://twitter.com/Vspo77">@Vspo77</a> <br><br>
+                    インスパイア: 35Player <br>
             </div>
         </div>
 

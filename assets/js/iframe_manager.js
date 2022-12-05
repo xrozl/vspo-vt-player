@@ -4,6 +4,22 @@ var player;
 // プレイ中のカーソル
 var cursor = 0;
 
+// リピート
+var repeat = false;
+
+// 読み込み時に呼ばれる
+function init() {
+    document.getElementById('controller_volume').addEventListener('input', function() {
+        player.setVolume(this.value);
+    });
+}
+
+// リピート切り替え
+function toggleRepeat() {
+    repeat = !repeat;
+    document.getElementById('repeat_button').style.color = repeat ? '#00ffff' : '#000000';
+}
+
 // Youtube IFrame Playerの準備ができたら呼ばれる関数
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('yt_player', {
@@ -32,6 +48,11 @@ function onPlayerStateChange(event) {
         if ((cursor+1) >= playlist.length) {
             // カーソルを0に戻す
             cursor = 0;
+            if (repeat) {
+                const videoId = playlist[cursor].videoUrl.split('v=')[1];
+                player.loadVideoById(videoId);
+                return;
+            }
             // 止める
             stopVideo();
             return;

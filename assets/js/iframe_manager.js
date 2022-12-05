@@ -171,6 +171,7 @@ function skip_next() {
         // 止める
         stopVideo();
         alert('プレイリストの最後です。');
+        cursor = playlist.length - 1;
         return;
     }
     cursor++;

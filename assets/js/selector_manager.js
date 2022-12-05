@@ -16,6 +16,12 @@ function loaddata(filename) {
                 select_container.innerHTML = '';
             }
 
+            // jsonのデータ数が0の場合
+            if (Object.keys(json).length === 0) {
+                select_container.innerHTML = '<p style="margin: 0, auto; padding-top: 10px; padding-left: 10px; font-size: 1.2vw; width:100%;">データがありません...</p>';
+                return;
+            }
+
             // 要素を作成
             for (var key in json) {
                 // Youtubeの動画IDを取得

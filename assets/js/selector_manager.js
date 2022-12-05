@@ -1,4 +1,4 @@
-function load(filename) {
+function loaddata(filename) {
     fetch(location.protocol + "//" + location.host + '/data/' + filename).then(function (response) {
         return response.json();
     }).then(
@@ -36,7 +36,7 @@ function load(filename) {
                 img.src = thumbnail;
                 img.classList.add('thumbnail');
                 const p = document.createElement('p');
-                p.innerHTML = '<span onclick=\"addPlaylist(\'' + key + '\', \'' + title + '\', \'' + duration + '\')\" class=\"material-symbols-outlined selector\">add_circle</span>' + title + ' (' + duration + ')';
+                p.innerHTML = '<span onclick=\"addPlaylist(\'' + key + '\', \'' + title + '\', \'' + duration + '\')\" class=\"material-symbols-outlined selector add_button\">add_circle</span>' + title + ' (' + duration + ')';
                 p.classList.add('title');
 
                 // 要素に子要素を追加

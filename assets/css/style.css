@@ -203,7 +203,7 @@ main {
 }
 
 /* プレイヤーのボタン設定 */
-.material-symbols-outlined {
+.controller_button, .add_button {
     /* フォントサイズ */
     font-size: 4.5vw;
     
@@ -212,7 +212,7 @@ main {
 }
 
 /* プレイヤーのボタンのマウスオーバー時の設定 */
-.material-symbols-outlined:hover {
+.controller_button:hover, .add_button:hover {
     cursor: pointer;
     color: #0000006f;
 }
@@ -347,4 +347,97 @@ main {
 
     /* ボーダーの設定 */
     border-right: 1px solid #000000;
+}
+
+/* コンテナトップの設定 */
+.top_container {
+    /* 横幅 */
+    width: 100%;
+    /* 高さ */
+    height: 270px;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+}
+
+/* プレイリスト表示部分 */
+.list_view {
+    /* 横幅 */
+    width: 35%;
+    /* 高さ */
+    height: 100%;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0;
+
+    /* ボーダーの設定 */
+    border-left: 4px double #000000;
+
+    /* スクロールバーの設定 */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* marginの設定 */
+    margin-left: 1vw;
+}
+
+/* プレイリスト表示の曲部分のボーダーの設定 */
+.listitem:not(:last-child) {
+    /* ボーダーの設定 */
+    border-bottom: 1px solid #000000;
+}
+
+/* プレイリスト表示の曲部分 */
+.listitem {
+    /* 横幅 */
+    width: 100%;
+
+    /* paddingの設定 */
+    padding-left: 1vw;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    /* フォント */
+    font-size: 1.1vw;
+    font-weight: 300;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+
+    /* FLEXBOXの設定 */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+}
+
+/* Youtubeプレイヤーの設定 */
+.yt_player {
+    /* marginの設定 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* キャンセルボタンの設定 */
+.cancel_button {
+    /* marginの設定 */
+    margin-right: 4px;
+
+    /* カーソルの設定 */
+    cursor: pointer;
+
+    /* フォント */
+    font-size: 1.8vw;
 }

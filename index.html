@@ -27,10 +27,14 @@
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/iframe_manager.js"></script>
     <script src="assets/js/selector_manager.js"></script>
+    <script>window.load=setTimeout( function() {refreshView();}, 100);</script>
 </head>
 <body>
 
     <main>
+        <!-- styleコントローラ -->
+        <div id="style_controller"></div>
+
         <!-- メニュー部分 -->
         <div class="left">
             <p class="logo">ぶいうたっ！</p>
@@ -45,21 +49,24 @@
         <div class="right">
             <!-- Youtube IFrame Player -->
             <div class="player_container">
-                <div class="player" id="yt_player"></div>
+                <div class="top_container full_width">
+                    <div class="yt_player" id="yt_player"></div>
+                    <div class="list_view" id="listview"></div>
+                </div>
                 <div class="controller">
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined controller_button" onclick="skip_previous();">
                         skip_previous
                     </span>
-                    <span class="material-symbols-outlined" onclick="stopVideo();">
+                    <span class="material-symbols-outlined controller_button" onclick="stopVideo();">
                         stop
                     </span>
-                    <span class="material-symbols-outlined" onclick="toggleVideo();">
+                    <span class="material-symbols-outlined controller_button" onclick="toggleVideo();">
                         play_pause
                     </span>
-                    <span class="material-symbols-outlined" onclick="repeatVideo();">
+                    <span class="material-symbols-outlined controller_button" onclick="repeatVideo();">
                         restart_alt
                     </span>
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined controller_button" onclick="skip_next();">
                         skip_next
                     </span>
                 </div>
@@ -68,8 +75,8 @@
             <!-- プレイヤー -->
             <div id="player" class="full_width content">
                 <div class="icon_container">
-                    <img src="assets/image/aizawa_ema.jpg" alt="" srcset="" class="icon" onclick="load('aizawa_ema.json');">
-                    <img src="assets/image/asumi_sena.jpg" alt="" srcset="" class="icon" onclick="load('asumi_sena.json');">
+                    <img src="assets/image/aizawa_ema.jpg" alt="" srcset="" class="icon" onclick="loaddata('aizawa_ema.json');">
+                    <img src="assets/image/asumi_sena.jpg" alt="" srcset="" class="icon" onclick="loaddata('asumi_sena.json');">
                     <img src="assets/image/ichinose_uruha.jpg" alt="" srcset="" class="icon">
                     <img src="assets/image/kaga_sumire.jpg" alt="" srcset="" class="icon">
                     <img src="assets/image/kaga_nazuna.jpg" alt="" srcset="" class="icon">

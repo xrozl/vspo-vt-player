@@ -5,17 +5,34 @@ body {
 }
 
 /* 全体コンテナの設定 */
-main {
-    /* 横幅いっぱい */
-    width: 100%;
+@media (min-width: 768px) {
+    .display_pc {
+        /* 横幅いっぱい */
+        width: 100%;
 
-    /* FLEXBOXの設定 */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: none;
-    justify-self: flex-start;
-    align-items: flex-start;
-    gap: 0;
+        /* FLEXBOXの設定 */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: none;
+        justify-self: flex-start;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    /* SPの時は非表示 */
+    .display_sp {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .display_pc {
+        display: none;
+    }
+
+    .display_sp {
+      
+    }
 }
 
 /* 左側メニューの設定 */
